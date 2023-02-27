@@ -14,15 +14,10 @@ function App() {
     }
     return floorsQuantityArray;
   };
-  let floorsQuantityArray = useMemo(() => createfloorsQuantityArray(), [floorsQuantity]);
-
-  useEffect(() => {
-    console.log("created new array");
-  }, [floorsQuantityArray]);
-
-  useEffect(() => {
-    console.log("state changed");
-  }, [floor]);
+  let floorsQuantityArray = useMemo(
+    () => createfloorsQuantityArray(),
+    [floorsQuantity]
+  );
 
   return (
     <div className="App">
@@ -32,7 +27,7 @@ function App() {
           className="lift-shaft"
         >
           <motion.div
-            animate={{ y:-floor * 100 }}
+            animate={{ y: -floor * 100 }}
             transition={{ duration: 2 }}
             className="lift"
           >
@@ -59,7 +54,9 @@ function App() {
         defaultValue="4"
         list="floors"
         onChange={(value) => {
-          setFloorsQuantity(+value.target.value);
+          setFloorsQuantity(+value.target.value)
+          setFloor(1)
+          ;
         }}
       />
       <datalist id="floors">
