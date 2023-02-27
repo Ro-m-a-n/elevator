@@ -1,5 +1,5 @@
 import "./App.css";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import ButtonsContainer from "./Components/ButtonsContainer/ButtonsContainer";
 
@@ -9,7 +9,7 @@ function App() {
 
   let createfloorsQuantityArray = () => {
     let floorsQuantityArray = [];
-    for (let i = 0; i < floorsQuantity; i++) {
+    for (let i = 1; i <= floorsQuantity; i++) {
       floorsQuantityArray.push(i);
     }
     return floorsQuantityArray;
@@ -27,7 +27,7 @@ function App() {
           className="lift-shaft"
         >
           <motion.div
-            animate={{ y: -floor * 100 }}
+            animate={{ y: 100 - floor * 100 }}
             transition={{ duration: 2 }}
             className="lift"
           >
@@ -54,9 +54,8 @@ function App() {
         defaultValue="4"
         list="floors"
         onChange={(value) => {
-          setFloorsQuantity(+value.target.value)
-          setFloor(1)
-          ;
+          setFloorsQuantity(+value.target.value);
+          setFloor(1);
         }}
       />
       <datalist id="floors">

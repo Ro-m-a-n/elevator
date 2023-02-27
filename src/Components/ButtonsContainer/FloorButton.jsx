@@ -5,7 +5,7 @@ const FloorButton = (props) => {
         props.setFloor(props.floor);
       }}
     >
-      {`${props.floor+1}` }
+      {props.floor }
     </button>
   );
 };
