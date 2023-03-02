@@ -5,7 +5,7 @@ import ButtonsContainer from "./Components/ButtonsContainer/ButtonsContainer";
 
 function App() {
   const [floor, setFloor] = useState(1);
-  const [floorsQuantity, setFloorsQuantity] = useState(8);
+  const [floorsQuantity, setFloorsQuantity] = useState(4);
 
   let createfloorsQuantityArray = () => {
     let floorsQuantityArray = [];
@@ -51,7 +51,7 @@ function App() {
         type="range"
         min="2"
         max="8"
-        defaultValue="4"
+        defaultValue={floorsQuantity}
         list="floors"
         onChange={(value) => {
           setFloorsQuantity(+value.target.value);
